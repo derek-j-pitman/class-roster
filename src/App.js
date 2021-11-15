@@ -7,19 +7,16 @@ let roster_info = [
   ["Imani", "Taylor", "pink"]
 ];
 
-function RosterRow(firstName, lastName, favoriteColor) {
+function RosterRow(personInfo) {
   return (
     <div className="row">
-      <span>{firstName}</span>
-      <span>{lastName}</span>
-      <span style={{ color: favoriteColor }}>{favoriteColor}</span>
+      <span>{personInfo[0]}</span>
+      <span>{personInfo[1]}</span>
+      <span style={{ color: personInfo[2] }}>{personInfo[2]}</span>
     </div>
   );
 }
 export default function App() {
-  let rosterElements = [];
-  for (let person of roster_info) {
-    rosterElements.push(RosterRow(person[0], person[1], person[2]));
-  }
+  let rosterElements = roster_info.map(RosterRow);
   return <div className="App">{rosterElements}</div>;
 }
