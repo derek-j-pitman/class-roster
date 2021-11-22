@@ -7,9 +7,13 @@ let roster_info = [
   ["Imani", "Taylor", "pink"]
 ];
 
-function RosterRow(personInfo) {
+function RosterRow(personInfo, index) {
+  let className = "row";
+  if (index % 2 === 0) {
+    className += " zebra";
+  }
   return (
-    <div className="row">
+    <div className={className}>
       <span>{personInfo[0]}</span>
       <span>{personInfo[1]}</span>
       <span style={{ color: personInfo[2] }}>{personInfo[2]}</span>
