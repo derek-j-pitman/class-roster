@@ -1,10 +1,10 @@
 import "./styles.css";
 
-let roster_info = [
-  ["Derek", "Pitman", "green"],
-  ["Abdulwahab", "Murshed", "blue"],
-  ["Anton", "Schuster", "orange"],
-  ["Imani", "Taylor", "pink"]
+let roster_objects = [
+  { firstName: "Derek", lastName: "Pitman", favoriteColor: "green" },
+  { firstName: "Abdulwahab", lastName: "Murshed", favoriteColor: "blue" },
+  { firstName: "Anton", lastName: "Schuster", favoriteColor: "orange" },
+  { firstName: "Imani", lastName: "Taylor", favoriteColor: "pink" }
 ];
 
 function RosterRow(personInfo, index) {
@@ -14,13 +14,15 @@ function RosterRow(personInfo, index) {
   }
   return (
     <div className={className}>
-      <span>{personInfo[0]}</span>
-      <span>{personInfo[1]}</span>
-      <span style={{ color: personInfo[2] }}>{personInfo[2]}</span>
+      <span>{personInfo.firstName}</span>
+      <span>{personInfo.lastName}</span>
+      <span style={{ color: personInfo.favoriteColor }}>
+        {personInfo.favoriteColor}
+      </span>
     </div>
   );
 }
 export default function App() {
-  let rosterElements = roster_info.map(RosterRow);
+  let rosterElements = roster_objects.map(RosterRow);
   return <div className="App">{rosterElements}</div>;
 }
